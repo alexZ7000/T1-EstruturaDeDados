@@ -1,0 +1,81 @@
+import java.util.Date;
+import java.util.Scanner;
+
+public class Ordenacao {
+    public static void main(String[] args) {
+        final Scanner sc = new Scanner(System.in);
+        System.out.print("Digite um tamanho para o vetor, 0 encerra: ");
+        int n = sc.nextInt();
+
+        while (n > 0) {
+            final MeuVetor v1 = new MeuVetor(n);
+
+            v1.preencheVetor();
+            System.out.println("Vetor gerado:\n" + v1);
+
+            // Usando Bubble Sort
+            MeuVetor v2 = copiarVetor(v1);
+            long inicio = new Date().getTime();
+            long comparacoesBubble = v2.bubbleSort();
+            long fim = new Date().getTime();
+            System.out.println("\n\nVetor Ordenado por Bubble Sort:");
+            System.out.println("Comparações Bubble Sort = " + comparacoesBubble);
+            System.out.println("Tempo Bubble Sort = " + (fim - inicio) + "ms " + (fim - inicio) / 60000 + "min " + (fim - inicio) / 3600000 + "h");
+
+            // Usando Insertion Sort
+            long comparacoesInsertion = v2.insertionSort();
+            System.out.println("\n\nVetor Ordenado por Insertion Sort:");
+            System.out.println("Comparações Insertion Sort = " + comparacoesInsertion);
+            System.out.println("Tempo Insertion Sort = " + (fim - inicio) + "ms " + (fim - inicio) / 60000 + "min " + (fim - inicio) / 3600000 + "h");
+
+            // Usando Selection Sort
+            v2 = copiarVetor(v1);
+            inicio = new Date().getTime();
+            long comparacoesSelection = v2.selectionSort();
+            fim = new Date().getTime();
+            System.out.println("\n\nVetor Ordenado por Selection Sort:");
+            System.out.println("Comparações Selection Sort = " + comparacoesSelection);
+            System.out.println("Tempo Selection Sort = " + (fim - inicio) + "ms " + (fim - inicio) / 60000 + "min " + (fim - inicio) / 3600000 + "h");
+
+            // Usando Merge Sort
+            v2 = copiarVetor(v1);
+            inicio = new Date().getTime();
+            v2.mergeSort();
+            fim = new Date().getTime();
+            System.out.println("\n\nVetor Ordenado por Merge Sort:");
+            System.out.println("Tempo Merge Sort = " + (fim - inicio) + "ms " + (fim - inicio) / 60000 + "min " + (fim - inicio) / 3600000 + "h");
+
+            // Usando Quick Sort
+            v2 = copiarVetor(v1);
+            inicio = new Date().getTime();
+            long comparacoesHeapSort = v2.heapSort();
+            fim = new Date().getTime();
+            System.out.println("\n\nVetor Ordenado por Quick Sort:");
+            System.out.println("Comparações Heap Sort = " + comparacoesHeapSort);
+            System.out.println("Tempo Quick Sort = " + (fim - inicio) + "ms " + (fim - inicio) / 60000 + "min " + (fim - inicio) / 3600000 + "h");
+
+            // Usando Heap Sort
+            v2 = copiarVetor(v1);
+            inicio = new Date().getTime();
+            long comparacoesQuickSort = v2.quickSort();
+            fim = new Date().getTime();
+            System.out.println("\n\nVetor Ordenado por Heap Sort:");
+            System.out.println("Comparações Quick Sort = " + comparacoesQuickSort);
+            System.out.println("Tempo Heap Sort = " + (fim - inicio) + "ms " + (fim - inicio) / 60000 + "min " + (fim - inicio) / 3600000 + "h");
+
+            System.out.print("\nDigite um tamanho para o vetor, 0 encerra: ");
+            n = sc.nextInt();
+        }
+        sc.close();
+    }
+
+    // Método utilitário para criar uma cópia do vetor
+    private static MeuVetor copiarVetor(MeuVetor original) {
+        MeuVetor copia = new MeuVetor(original.getUltimaPos() + 1);
+        double[] originalArray = original.getV();
+        for (int i = 0; i <= original.getUltimaPos(); i++) {
+            copia.adiciona(originalArray[i]);
+        }
+        return copia;
+    }
+}
