@@ -3,7 +3,8 @@
 # O que deverá ser feito? <picture><source srcset="https://fonts.gstatic.com/s/e/notoemoji/latest/1f914/512.webp" type="image/webp"><img src="https://fonts.gstatic.com/s/e/notoemoji/latest/1f914/512.gif" alt="🤔" width="32" height="32"></picture>
 
 ## Documento da Professora Machion 📃
-![img.png](img.png)
+![image](https://github.com/alexZ7000/T1-EstruturaDeDados/assets/78627928/fdfbdbe9-b782-4f90-98cf-6c7dc8012422)
+
 
 # Colaboradores 🤝
 
